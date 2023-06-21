@@ -4,10 +4,10 @@ import java.util.List;
 
 public abstract class Item {
     private final String title;
-    private final Creator creator;
+    private final String creator;
     private List<String> genre;
 
-    public Item(String title, Creator creator, List<String> genre) {
+    public Item(String title, String creator, List<String> genre) {
         this.title = title;
         this.creator = creator;
         this.genre = genre;
@@ -17,7 +17,7 @@ public abstract class Item {
         return title;
     }
 
-    public Creator getCreator() {
+    public String getCreator() {
         return creator;
     }
 

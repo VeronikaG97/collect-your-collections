@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class endpointBookTest {
     public static Stream<Arguments> provideNewBooks() {
         return Stream.of(
-               Arguments.of(new Book("Der Hobbit", new Author("J. R. R. Tolkien"), new ArrayList<BookGenres>(Integer.parseInt(BookGenres.FANTASY.name())))),
-               Arguments.of(new Book("Wintermond", new Author("Tanja Heitmann"), new ArrayList<BookGenres>(Integer.parseInt(BookGenres.FANTASY.name()))))
+               Arguments.of(new Book("Der Hobbit", new Author("J. R. R. Tolkien"), new ArrayList<String>(Integer.parseInt(BookGenres.FANTASY.name())))),
+               Arguments.of(new Book("Wintermond", new Author("Tanja Heitmann"), new ArrayList<String>(Integer.parseInt(BookGenres.FANTASY.name()))))
         );
     }
 

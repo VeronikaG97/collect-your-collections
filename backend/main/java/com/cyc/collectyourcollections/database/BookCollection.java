@@ -1,8 +1,6 @@
 package com.cyc.collectyourcollections.database;
 
-import com.cyc.collectyourcollections.data.Book;
 import com.cyc.collectyourcollections.data.BookGenres;
-import com.cyc.collectyourcollections.data.Creator;
 import jakarta.persistence.*;
 
 import java.util.List;
