@@ -3,7 +3,6 @@ package com.cyc.collectyourcollections.restController;
 import com.cyc.collectyourcollections.data.Book;
 import com.cyc.collectyourcollections.data.Collections;
 import com.cyc.collectyourcollections.data.Item;
-import com.cyc.collectyourcollections.database.BookCollection;
 import com.cyc.collectyourcollections.database.BookCollectionRepository;
 import com.cyc.collectyourcollections.exceptions.BookNotFoundException;
 import org.springframework.web.bind.annotation.*;
