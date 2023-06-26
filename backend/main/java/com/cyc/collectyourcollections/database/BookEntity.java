@@ -1,27 +1,27 @@
 package com.cyc.collectyourcollections.database;
-
-import com.cyc.collectyourcollections.data.BookGenres;
 import jakarta.persistence.*;
-
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "books")
-public class BookCollection {
+public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     private String title;
     private String author;
-    private List<BookGenres> genresList;
 
-    public BookCollection(String title, String author, List<BookGenres> genresList) {
+    //TODO: Ask a mentor about @ElementCollection
+    @ElementCollection
+    private Set<String> genresList;
+
+    public BookEntity(String title, String author, Set<String> genresList) {
         this.title = title;
         this.author = author;
         this.genresList = genresList;
     }
 
-    public BookCollection(){}
+    public BookEntity(){}
 
     public String getTitle() {
         return title;
@@ -39,11 +39,11 @@ public class BookCollection {
         this.author = author;
     }
 
-    public List<BookGenres> getGenresList() {
+    public Set<String> getGenresList() {
         return genresList;
     }
 
-    public void setGenresList(List<BookGenres> genresList) {
+    public void setGenresList(Set<String> genresList) {
         this.genresList = genresList;
     }
 }

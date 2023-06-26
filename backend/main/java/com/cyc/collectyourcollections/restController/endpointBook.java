@@ -2,17 +2,18 @@ package com.cyc.collectyourcollections.restController;
 
 import com.cyc.collectyourcollections.data.Book;
 import com.cyc.collectyourcollections.data.Collections;
-import com.cyc.collectyourcollections.data.Item;
 import com.cyc.collectyourcollections.database.BookCollectionRepository;
+import com.cyc.collectyourcollections.database.BookEntity;
 import com.cyc.collectyourcollections.exceptions.BookNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("collections/books")
 public class endpointBook {
-    private Collections collections;
+    private final Collections collections;
     private final BookCollectionRepository  bookCollectionRepository;
 
     public endpointBook(Collections collections, BookCollectionRepository bookCollectionRepository) {
@@ -21,14 +22,18 @@ public class endpointBook {
     }
 
     @GetMapping("/all-books")
-    public List<Item> getAllBooks(){
-        return collections.getCollections();
+    public List<BookEntity> getAllBooks(){
+        return bookCollectionRepository.findAll();
     }
 
     @PostMapping("/add-book")
-    public Book addABook(@RequestBody Book book){
-        collections.addBook(book);
-        return book;
+    public void addABook(@RequestBody Book book){
+        BookEntity bookToSave = new BookEntity(
+                book.getTitle(),
+                book.getCreator(),
+                book.getGenre()
+        );
+        bookCollectionRepository.save(bookToSave);
     }
 
     @PatchMapping("/update-book/{title}")
@@ -37,10 +42,9 @@ public class endpointBook {
         return book;
     }
 
-    @DeleteMapping("delete-book/{title}")
+    @DeleteMapping("/delete-book/{title}")
     public String updateBook(@PathVariable String title) throws BookNotFoundException {
         collections.deleteBook(title);
         return String.format("The book %s is removed.", title);
-        //return "The Book" + title + "is removed"
     }
 }

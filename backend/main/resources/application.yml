@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/CYC
-    username: 
-    password:
+    username: postgres
+    password: PfDB_Millenia24
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
