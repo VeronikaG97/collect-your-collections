@@ -11,7 +11,6 @@ public class BookEntity {
     private String title;
     private String author;
 
-    //TODO: Ask a mentor about @ElementCollection
     @ElementCollection
     private Set<String> genresList;
 
@@ -19,6 +18,10 @@ public class BookEntity {
         this.title = title;
         this.author = author;
         this.genresList = genresList;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public BookEntity(){}

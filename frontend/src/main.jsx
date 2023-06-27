@@ -5,13 +5,13 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} fr
 import './index.css'
 import Layout from "./pages/layout/index.js";
 import WelcomePage from "./component/WelcomePage.jsx";
-import CollectionsTable from "./component/CollectionsTable.jsx";
+import BookService from "./component/BookService.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path={"/"} element={<Layout />}>
             <Route path={"/"} element={<WelcomePage />}/>
-            <Route path={"/logged-in"} element={<CollectionsTable />}/>
+            <Route path={"/logged-in"} element={<BookService />}/>
         </Route>
     )
 )

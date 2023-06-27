@@ -36,12 +36,4 @@ public class Collections {
         collections.add(book);
         return book;
     }
-
-    public void deleteBook(String title) throws BookNotFoundException {
-        collections.stream()
-                .filter(bookInList -> bookInList.getTitle().equals(title))
-                .findFirst()
-                .map(bookToDelete -> collections.remove(bookToDelete))
-                .orElseThrow(() -> new BookNotFoundException(title));
-    }
 }
