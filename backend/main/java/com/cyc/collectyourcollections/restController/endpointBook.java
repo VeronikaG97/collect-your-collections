@@ -29,28 +29,30 @@ public class endpointBook {
 
     @PostMapping("/add-book")
     public Long addABook(@RequestBody Book book){
+        BookEntity bookToSave = getNewBookEntity(book);
+        bookCollectionRepository.save(bookToSave);
+        return bookToSave.getId();
+    }
+
+    @PatchMapping("/update-book/{id}")
+    public Book updateBook(@PathVariable Long id, @RequestBody Book book) throws BookNotFoundException {
+        bookCollectionRepository.deleteById(id);
+        BookEntity bookToUpdate = getNewBookEntity(book);
+        bookCollectionRepository.save(bookToUpdate);
+        return book;
+    }
+
+    @DeleteMapping("/delete-book/{id}")
+    public void deleteBook(@PathVariable long id) throws BookNotFoundException {
+        bookCollectionRepository.deleteById(id);
+    }
+
+    private static BookEntity getNewBookEntity(Book book) {
         BookEntity bookToSave = new BookEntity(
                 book.getTitle(),
                 book.getCreator(),
                 book.getGenre()
         );
-        bookCollectionRepository.save(bookToSave);
-        return bookToSave.getId();
-    }
-
-    @PatchMapping("/update-book/{title}")
-    public Book deleteBook(@PathVariable String title, @RequestBody Book book) throws BookNotFoundException {
-        collections.updateBook(title, book);
-        return book;
-    }
-
-    @DeleteMapping("/delete-book/{id}")
-    public String deleteBook(@PathVariable long id) throws BookNotFoundException {
-        try {
-            bookCollectionRepository.deleteById(id);
-        } catch (Exception e) {
-            return "Book was not found.";
-        }
-        return String.format("The book is removed.");
+        return bookToSave;
     }
 }

@@ -8,8 +8,8 @@ const fetchBookDataForTable = async () => {
     return fetchResult;
 };
 
-const deleteBookFromCollections = async (title) => {
-    return fetch(`http://localhost:8080/collections/books/delete-book/${title}`,{ method: "DELETE" })
+const deleteBookFromCollections = async (id) => {
+    return fetch(`http://localhost:8080/collections/books/delete-book/${id}`,{ method: "DELETE" })
         .then((res) =>
         res.json()
     );

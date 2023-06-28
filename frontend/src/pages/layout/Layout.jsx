@@ -10,16 +10,6 @@ const Layout = () => (
         <li className="grow">
           <Link to="/">Collect Your Collections</Link>
         </li>
-        <li>
-          <Link to="/Login">
-            <button type="button">Login</button>
-          </Link>
-        </li>
-        <li>
-          <Link to="/register">
-            <button type="button">Register</button>
-          </Link>
-        </li>
       </ul>
     </nav>
     <Outlet />
