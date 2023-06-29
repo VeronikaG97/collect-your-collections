@@ -1,12 +1,14 @@
 package com.cyc.collectyourcollections.restController;
 
 import com.cyc.collectyourcollections.data.Book;
+import com.cyc.collectyourcollections.data.BookGenres;
 import com.cyc.collectyourcollections.data.Collections;
 import com.cyc.collectyourcollections.database.BookCollectionRepository;
 import com.cyc.collectyourcollections.database.BookEntity;
 import com.cyc.collectyourcollections.exceptions.BookNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +27,12 @@ public class endpointBook {
     @GetMapping("/all-books")
     public List<BookEntity> getAllBooks(){
         return bookCollectionRepository.findAll();
+    }
+
+    @GetMapping("/all-genres")
+    public List<BookGenres> getAllGenres(){
+        List<BookGenres> listOfGenres = Arrays.asList(BookGenres.values());
+        return listOfGenres;
     }
 
     @PostMapping("/add-book")

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import BookCollectionTable from "./BookCollectionTable.jsx";
+import BookCollectionTable from "../pages/BookCollectionTable.jsx";
 
 const fetchBookDataForTable = async () => {
     let fetchData = await fetch("http://localhost:8080/collections/books/all-books");
@@ -18,13 +18,13 @@ const deleteBookFromCollections = async (id) => {
 const BookService = () => {
     const [bookData, setBookData] = useState(null);
 
-    const handleDeleteBookFromCollection = (title) => {
-      deleteBookFromCollections(title)
+    const handleDeleteBookFromCollection = (id) => {
+      deleteBookFromCollections(id)
           .catch((err) => {
               console.log(err);
           });
         setBookData((items) => {
-            return items.filter((collectionItem) => collectionItem.title !== title);
+            return items.filter((collectionItem) => collectionItem.id !== id);
         });
     };
 

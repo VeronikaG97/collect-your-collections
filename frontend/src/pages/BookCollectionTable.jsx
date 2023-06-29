@@ -2,14 +2,22 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const BookCollectionTable = ({bookData, onDeleteBookFromCollection, setBookData}) => {
-    console.log(bookData)
   return(
       <>
           <nav>
               <div className={"btn-div-for-login-and-register"}>
                   <ul>
                       <li>
-                          <Link to="/Login">
+                          <Link to="/createBook">
+                              <button
+                                  className={"btn-left"}
+                                  type="button">
+                                    Create
+                              </button>
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/">
                               <button className={"btn-left"} type="button">Logout</button>
                           </Link>
                       </li>
@@ -31,8 +39,8 @@ const BookCollectionTable = ({bookData, onDeleteBookFromCollection, setBookData}
                           bookData !== null
                             ?
                               <>
-                              {bookData.map((book) => (
-                                  <tr key={book.title}>
+                              {bookData.map((book, index) => (
+                                  <tr key={index}>
                                       <td>{book.title}</td>
                                       <td>{book.author}</td>
                                       <td>{book.genresList}</td>
