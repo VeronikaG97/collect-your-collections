@@ -2,16 +2,16 @@ import React from "react";
 
 const Filter = ({props}) => {
     let thresholdForSearching = 3;
-    const handleSearchForTitle = (e) => {
+    const handleSearchForTitle = async (e) => {
         let userSearch = e.target.value;
         if (userSearch.length <= thresholdForSearching) {
+            console.log("NO");
             return;
         }
-        return fetch(`http://localhost:8080/collections/books//search/${userSearch}`)
-            .then((result) => {
-                let data = result.json()
-                props.setBookData(data);
-            });
+        let data = await fetch(`http://localhost:8080/collections/books/search/${userSearch}`);
+        let result = await data.json();
+        console.log(result)
+        return props.setBookData(result);
     }
 
   return(
