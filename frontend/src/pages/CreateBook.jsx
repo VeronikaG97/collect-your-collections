@@ -19,7 +19,6 @@ const onSave = (book) => {
 
 const CreateBook = () => {
     const [bookGenres, setBookGenres] = useState();
-    const [isCheckedGenresTrue, setIsCheckedGenresTrue] = useState(false);
     const [checkNewBookGenres, setCheckNewBookGenres] = useState([]);
 
 

@@ -34,6 +34,11 @@ public class endpointBook {
         return listOfGenres;
     }
 
+    @GetMapping("/search/{title}")
+    public List<BookEntity> findBookByTitle(@PathVariable String title) {
+        return bookCollectionRepository.findByTitle(title);
+    }
+
     @PostMapping("/add-book")
     public Long addABook(@RequestBody Book book){
         BookEntity bookToSave = getNewBookEntity(book);
@@ -41,6 +46,7 @@ public class endpointBook {
         return bookToSave.getId();
     }
 
+    //ToDo: Decide if you need it, works with Postman... but needed?
     @PatchMapping("/update-book/{id}")
     public Book updateBook(@PathVariable Long id, @RequestBody Book book) throws BookNotFoundException {
         bookCollectionRepository.deleteById(id);

@@ -1,5 +1,5 @@
-import React from "react";
 import {Link} from "react-router-dom";
+import Filter from "../component/Filter.jsx";
 
 const BookCollectionTable = ({bookData, onDeleteBookFromCollection, setBookData}) => {
   return(
@@ -26,6 +26,9 @@ const BookCollectionTable = ({bookData, onDeleteBookFromCollection, setBookData}
           </nav>
           <div className={"item-table"}>
               <h1>Your Book Collection</h1>
+              <Filter
+                  setBookData={setBookData}
+              />
               <table>
                   <thead>
                   <tr>
