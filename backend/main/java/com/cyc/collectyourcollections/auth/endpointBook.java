@@ -1,4 +1,4 @@
-package com.cyc.collectyourcollections.restController;
+package com.cyc.collectyourcollections.auth;
 
 import com.cyc.collectyourcollections.data.Book;
 import com.cyc.collectyourcollections.data.BookGenres;

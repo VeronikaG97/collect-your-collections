@@ -1,4 +1,4 @@
-package com.cyc.collectyourcollections.restController;
+package com.cyc.collectyourcollections.auth;
 
 import com.cyc.collectyourcollections.data.*;
 import org.junit.jupiter.api.Test;
@@ -6,13 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class endpointBookTest {
     public static Stream<Arguments> provideNewBooks() {
